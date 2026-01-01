@@ -1,0 +1,17 @@
+baseURL = "https://blog.cc00ffee.dev/"
+languageCode = "en-us"
+title = "cc00ffee blog"
+theme = "risotto"
+
+[params]
+  description = "blog.cc00ffee.dev"
+
+[menu]
+  [[menu.main]]
+    name = "home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "posts"
+    url = "/posts"
+    weight = 2
