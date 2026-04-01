@@ -12,10 +12,10 @@ date: 2026-03-31
 - `/tmp/ld.py:fcb81618bb15edfdedfb638b4c08a2af9cac9ecfa551af135a8402bf980375cf`
 
 **Network:**
-`IP: 142.11.206[.]73`
-`Domain: sfrclak[.]com`
-`C2 Endpoint: hxxp://sfrclak[.]com:8000/6202033`
-`Beacons: packages[.]npm[.]org/product0 (macOS), packages[.]npm[.]org/product1 (Windows), packages[.]npm[.]org/product2 (Linux)`
+- `IP: 142.11.206[.]73`
+- `Domain: sfrclak[.]com`
+- `C2 Endpoint: hxxp://sfrclak[.]com:8000/6202033`
+- `Beacons: packages[.]npm[.]org/product0 (macOS), packages[.]npm[.]org/product1 (Windows), packages[.]npm[.]org/product2 (Linux)`
 
 **NPM Packages:**
 - `axios@1.14.1`
