@@ -6,10 +6,10 @@ date: 2026-03-31
 
 ## IOCs
 **File Hashes:**
-- `setup.js:e10b1fa84f1d6481625f741b69892780140d4e0e7769e7491e5f4d894c2e0e09`
-- `%PROGRAMDATA%\wt.exe, %TEMP%\6202033.vbs, %TEMP%\6202033.ps1:617b67a8e1210e4fc87c92d1d1da45a2f311c08d26e89b12307cf583c900d101`
-- `/Library/Caches/com.apple.act.mond:92ff08773995ebc8d55ec4b8e1a225d0d1e51efa4ef88b8849d0071230c9645a`
-- `/tmp/ld.py:fcb81618bb15edfdedfb638b4c08a2af9cac9ecfa551af135a8402bf980375cf`
+- `setup.js`:`e10b1fa84f1d6481625f741b69892780140d4e0e7769e7491e5f4d894c2e0e09`
+- `%PROGRAMDATA%\wt.exe, %TEMP%\6202033.vbs, %TEMP%\6202033.ps1`:`617b67a8e1210e4fc87c92d1d1da45a2f311c08d26e89b12307cf583c900d101`
+- `/Library/Caches/com.apple.act.mond`:`92ff08773995ebc8d55ec4b8e1a225d0d1e51efa4ef88b8849d0071230c9645a`
+- `/tmp/ld.py`:`fcb81618bb15edfdedfb638b4c08a2af9cac9ecfa551af135a8402bf980375cf`
 
 **Network:**
 - `IP: 142.11.206[.]73`
@@ -124,7 +124,7 @@ Each downloaded version run the exact same, with a few changes found below.
 - `rundir` - enumerates directory metadata
 
 #### Linux (Python)
-- In terms of persistence, Linux doesn't get any!
+- In terms of persistence, Linux doesn't get any _(targeting ephemeral CI/CD environments where persistence isn't needed?)_
 - It enumerates `~`, `~/.config`, `~/Documents`, and `~/Desktop` first. 
 
 **C2 Commands:**
