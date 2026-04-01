@@ -92,9 +92,12 @@ Across all of them, the RAT:
 - Generates a 16-char UID
 - Get's information about the system: OS version, architecture, boot time, hostname, username, installation time, manufacturer/product name, and process list
 - C2 Beacon in intervals of 60 seconds
-	- Uses user-agent: `mozilla/4.0 (compatible; msie 8.0; windows nt 5.1; trident/4.0)`
+	- Uses user-agent: `mozilla/4.0 (compatible; msie 8.0; windows nt 5.1; trident/4.0)`  
 
+Each downloaded version run the exact same, with a few changes found below.
 
+![main beacon loop](/assets/images/main.png)  
+*Main beacon loop in Linux's Python RAT*
 
 ### Platform Specific
 
@@ -110,13 +113,13 @@ Across all of them, the RAT:
 
 ![Persistence in ps1 file](/assets/images/persistence.png)  
 *Persistence commands in .ps1 file*
+
 #### Mac (AppleScript)
 - It enumerates `/Applications`, `~/Library` and `~/Library/Application Support` first. 
-- It also bypasses Gatekeeper with `codesign --force --deep --sign -`
 
 **C2 Commands:**
 - `kill` - kills RAT process
-- `peinject` - performs RCE in memory through .NET assembly injection
+- `peinject` - decodes base64 from C2 writes it to a hidden tmp file, runs  `codesign --force --deep --sign -` to bypass Gatekeeper, then executes
 - `runscript` - runs inline commands through `/bin/sh` or APpleScript files via `osascript`
 - `rundir` - enumerates directory metadata
 
