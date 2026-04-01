@@ -1,11 +1,10 @@
 ---
 layout: post
-title: "Supply Chain Attack: NPM Package Axios Compromised Analysis"
+title: "Supply Chain Attack: npm Package Axios Compromised Analysis"
 date: 2026-03-31
 ---
-﻿
-> Analysis on all files related to the Axios compromise!
-### IOCs
+
+## IOCs
 **File Hashes:**
 - `setup.js:e10b1fa84f1d6481625f741b69892780140d4e0e7769e7491e5f4d894c2e0e09`
 - `%PROGRAMDATA%\wt.exe, %TEMP%\6202033.vbs, %TEMP%\6202033.ps1:617b67a8e1210e4fc87c92d1d1da45a2f311c08d26e89b12307cf583c900d101`
@@ -21,7 +20,7 @@ date: 2026-03-31
 - `axios@0.30.4`
  - `plain-crypto-js@4.2.1`
 
-### Background
+## Background
 Axios is a popular promise-based HTTP client for Javascript applications, with close to 100 million downloads per week. It is commonly used in environments such as Node.js and modern frontend frameworks to handle API communication.
 
 On March 31st, 2026, a compromised maintainer account pushed two malicious versions (1.14.1, 0.30.4) to NPM. There, a hidden dependency `plain-crypto-js@4.2.1`  provides a dropper to deploy a Remote Access Trojan (RAT) across Windows, MacOS, and Linux platforms. 
@@ -95,39 +94,39 @@ Across all of them, the RAT:
 
 
 
-#### Platform Specific
+### Platform Specific
 
-##### Windows (Powershell)
+#### Windows (Powershell)
 - Persistence through creating `%PROGRAMDATA%\system.bat` with attribute `Hidden` that redownloads the RAT on login, and through adding a registry Run key `HKCU:\Software\Microsoft\Windows\CurrentVersion\Run\MicrosoftUpdate` to the file.
 - It enumerates `Documents`, `Desktop`, `OneDrive`, `AppData\Roaming` first. 
 
 **C2 Commands:**
-`kill` - kills process
-`peinject` - performs RCE in memory through .NET assembly injection
-`runscript` - runs inline command or base64 encoded
-`rundir` - enumerates directory metadata
+- `kill` - kills process
+- `peinject` - performs RCE in memory through .NET assembly injection
+- `runscript` - runs inline command or base64 encoded
+- `rundir` - enumerates directory metadata
 
 ![[Pasted image 20260331205614.png]]
 *Persistence commands in .ps1 file*
-##### Mac (AppleScript)
+#### Mac (AppleScript)
 - It enumerates `/Applications`, `~/Library` and `~/Library/Application Support` first. 
 - It also bypasses Gatekeeper with `codesign --force --deep --sign -`
 
 **C2 Commands:**
-`kill` - kills RAT process
-`peinject` - performs RCE in memory through .NET assembly injection
-`runscript` - runs inline commands through `/bin/sh` or APpleScript files via `osascript`
-`rundir` - enumerates directory metadata
+- `kill` - kills RAT process
+- `peinject` - performs RCE in memory through .NET assembly injection
+- `runscript` - runs inline commands through `/bin/sh` or APpleScript files via `osascript`
+- `rundir` - enumerates directory metadata
 
-##### Linux (Python)
+#### Linux (Python)
 - In terms of persistence, Linux doesn't get any!
 - It enumerates `~`, `~/.config`, `~/Documents`, and `~/Desktop` first. 
 
 **C2 Commands:**
-`kill` - kills process
-`peinject` - Writes to` /tmp/{6_random_chars}`, `chmod 777`, then executes
-`runscript` - runs inline command or decodes and executes base64 command
-`rundir` - enumerates directory metadata
+- `kill` - kills process
+- `peinject` - Writes to` /tmp/{6_random_chars}`, `chmod 777`, then executes
+- `runscript` - runs inline command or decodes and executes base64 command
+- `rundir` - enumerates directory metadata
 
 ![[Pasted image 20260331211710.png]]
 *C2 commands in Python*
