@@ -108,7 +108,7 @@ Across all of them, the RAT:
 - `runscript` - runs inline command or base64 encoded
 - `rundir` - enumerates directory metadata
 
-![[Pasted image 20260331205614.png]]
+![Persistence in ps1 file](/assets/images/persistence.png)  
 *Persistence commands in .ps1 file*
 #### Mac (AppleScript)
 - It enumerates `/Applications`, `~/Library` and `~/Library/Application Support` first. 
@@ -130,5 +130,5 @@ Across all of them, the RAT:
 - `runscript` - runs inline command or decodes and executes base64 command
 - `rundir` - enumerates directory metadata
 
-![[Pasted image 20260331211710.png]]
+![commands](/assets/images/beacon_loop.png)  
 *C2 commands in Python*
